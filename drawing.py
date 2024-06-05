@@ -100,16 +100,16 @@ class Drawing:
             self.sfx.rotate(-1)
 
     def win(self):
-        render = self.font_win.render('YOU WIN!!!', 1, (randrange(40, 120), 0, 0))
-        rect = pygame.Rect(0, 0, 1000, 300)
-        rect.center = HALF_WIDTH - 100, HALF_HEIGHT - 100
+        render = self.font_win.render('YOU WIN!!!', 1, (randrange(40, 150), 0, 0))
+        rect = pygame.Rect(0, 0, 1000, 1000)
+        rect.center = HALF_WIDTH, HALF_HEIGHT - 100
         pygame.draw.rect(self.sc, BLACK, rect, border_radius=50)
-        self.sc.blit(render, (rect.centerx - 430, rect.centery - 100))
+        self.sc.blit(render, (rect.centerx - 430, rect.centery - 200))
         button_font = pygame.font.Font('font/font.ttf', 72)
-        exit = button_font.render('EXIT', 1, pygame.Color('lightgray'))
+        exit = button_font.render('EXIT', 1, pygame.Color(150, 0, 0))
         button_exit = pygame.Rect(0, 0, 500, 150)
         button_exit.center = HALF_WIDTH, HALF_HEIGHT + 200
-        pygame.draw.rect(self.sc, BLACK, button_exit, border_radius=25, width=10)
+        pygame.draw.rect(self.sc, (150, 0, 0), button_exit, border_radius=25, width=10)
         self.sc.blit(exit, (button_exit.centerx - 85, button_exit.centery - 35))
         while self.pause_trigger:
             for event in pygame.event.get():
@@ -120,7 +120,7 @@ class Drawing:
             mouse_pos = pygame.mouse.get_pos()
             mouse_click = pygame.mouse.get_pressed()
             if button_exit.collidepoint(mouse_pos):
-                pygame.draw.rect(self.sc, BLACK, button_exit, border_radius=25)
+                pygame.draw.rect(self.sc, WHITE, button_exit, border_radius=25)
                 self.sc.blit(exit, (button_exit.centerx - 85, button_exit.centery - 40))
                 if mouse_click[0]:
                     pygame.quit()
