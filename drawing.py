@@ -101,7 +101,7 @@ class Drawing:
 
     def win(self):
         render = self.font_win.render('YOU WIN!!!', 1, (randrange(40, 150), 0, 0))
-        rect = pygame.Rect(0, 0, 1000, 1000)
+        rect = pygame.Rect(0, 0, 10000, 1000)
         rect.center = HALF_WIDTH, HALF_HEIGHT - 100
         pygame.draw.rect(self.sc, BLACK, rect, border_radius=50)
         self.sc.blit(render, (rect.centerx - 430, rect.centery - 200))
